@@ -1,0 +1,379 @@
+<!DOCTYPE html>    
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Finals Portfolio</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Pacifico&display=swap" rel="stylesheet">
+
+<style>
+
+:root {
+  --primary: #9ccc65;
+  --accent: #ff8fa3;
+  --bg: #f7f9f6;
+  --card: #ffffff;
+  --text: #2f3e2f;
+  --petal: radial-gradient(circle at 30% 30%, #fff, #ff8fa3);
+}
+
+
+[data-theme="dark"] {
+  --primary: #b39ddb;
+  --accent: #9575cd;
+  --bg: #0f0b1a;
+  --card: #1b1530;
+  --text: #ece7ff;
+  --petal: radial-gradient(circle at 30% 30%, #d1c4e9, #7e57c2);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: "Inter", sans-serif; 
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+
+h1, h2, h3, .logo, strong {
+  font-family: "Pacifico", cursive;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+
+.petals {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -2;
+}
+
+.petal {
+  position: absolute;
+  top: -30px;
+  width: 18px;
+  height: 18px;
+  background: var(--petal);
+  border-radius: 50% 50% 50% 0;
+  opacity: 0.8;
+  animation: fall linear infinite;
+}
+
+@keyframes fall {
+  0% { transform: translateX(0) rotate(0deg); }
+  100% { transform: translateX(120px) translateY(110vh) rotate(360deg); }
+}
+
+
+.bubbles {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.bubble {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #ffffff88, var(--primary));
+  opacity: 0.25;
+  animation: float 12s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%,100% { transform: translateY(0); }
+  50% { transform: translateY(-40px); }
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: var(--card);
+  box-shadow: 0 4px 10px rgba(0,0,0,.25);
+  z-index: 1000;
+}
+
+.nav-container {
+  max-width: 1100px;
+  margin: auto;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: var(--primary);
+  font-size: 1.5rem;
+}
+
+.nav-links a {
+  margin: 0 10px;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+.nav-links i {
+  margin-right: 5px;
+  color: var(--accent);
+}
+
+.theme-toggle {
+  cursor: pointer;
+  font-size: 1.3rem;
+}
+
+
+section {
+  padding: 110px 20px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.card {
+  background: var(--card);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 25px rgba(0,0,0,.2);
+}
+
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 2rem;
+  align-items: center;
+}
+
+.home img {
+  max-width: 230px;
+  border-radius: 50%;
+  margin: auto;
+}
+
+.tagline {
+  font-size: 2rem;
+  color: var(--primary);
+}
+
+.quote {
+  margin-top: 1rem;
+  color: var(--accent);
+  font-style: italic;
+}
+
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+  gap: 1rem;
+}
+
+.skill {
+  padding: 1rem;
+  background: rgba(255,255,255,.05);
+  border-left: 6px solid var(--primary);
+  border-radius: 10px;
+}
+
+
+.projects {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+  gap: 1.5rem;
+}
+
+
+form input, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  border: 1px solid #aaa;
+  font-family: "Inter", sans-serif;
+}
+
+form button {
+  background: var(--primary);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.socials a {
+  font-size: 1.5rem;
+  margin-right: 12px;
+  color: var(--accent);
+}
+
+
+@media (max-width: 768px) {
+  .nav-links { display: none; }
+}
+</style>
+</head>
+
+<body>
+</head>
+
+<body>
+
+<div class="petals" id="petals"></div>
+<div class="bubbles" id="bubbles"></div>
+
+<nav>
+  <div class="nav-container">
+    <div class="logo">🌸 MyPortfolio</div>
+    <div class="nav-links">
+      <a href="#home"><i class="fa fa-house"></i>Home</a>
+      <a href="#about"><i class="fa fa-user"></i>About</a>
+      <a href="#skills"><i class="fa fa-code"></i>Skills</a>
+      <a href="#projects"><i class="fa fa-folder"></i>Projects</a>
+      <a href="#contact"><i class="fa fa-envelope"></i>Contact</a>
+    </div>
+    <div class="theme-toggle" id="toggle">🌞</div>
+  </div>
+</nav>
+
+<section id="home">
+  <div class="card home">
+    <img src="profile.jpeg" alt="Profile Picture">
+    <div>
+      <h1 class="tagline">Hi! I'm Feona</h1>
+      <p>Creating soft, aesthetic, and functional websites.</p>
+      <p class="quote">“Learning one line of code at a time.”</p>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="card">
+    <h2>About Me</h2>
+    <p>Second-year IT student eager to learn more about UI design and front-end development.</p>
+    <p><strong>University:</strong> Eastern Visayas State University Ormoc Campus</p>
+    <p><strong>Course:</strong> BS Information Technology</p>
+    <p><strong>Interests:</strong> Web Dev, UI/UX</p>
+    <p><strong>Hobbies:</strong> Gaming, Crafting, Coding</p>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="card">
+    <h2>Skills</h2>
+    <div class="skills-grid">
+      <div class="skill">HTML, CSS, JavaScript</div>
+      <div class="skill">Git & GitHub</div>
+      <div class="skill">VS Code, Linux</div>
+      <div class="skill">Critical Thinking & Problem Solving</div>
+      <div class="skill">Web Development</div>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <div class="card">
+    <h2>Projects</h2>
+    <div class="projects">
+      <div class="project">
+        <h3>Personal Portfolio</h3>
+        <p>Final Project for IT273 Web Systems and Technology.</p>
+        <p>Developed a portfolio of creative projects combining artistry and functionality. Every project highlights my attention to detail and creativity in crafting ideas into functional web applications.</p>
+        <p><strong>Contribution:</strong> Designed the layout, implemented responsive design.</p>
+        <p><strong>Languages/Technologies:</strong> HTML, CSS, JavaScript, Google Fonts, Font Awesome</p>
+      </div>
+      <div class="project">
+        <h3>Student Information Manager</h3>
+        <p>Final Project for IT233 Object Oriented Programming.</p>
+        <p>A program enabling creation, viewing, updating, and deletion of student information using basic CRUD operations for organized data management.</p>
+        <p><strong>Contribution:</strong> Developed CRUD functionalities and interface for efficient student management.</p>
+        <p><strong>Languages/Technologies:</strong> Java, HTML, CSS</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="contact">
+  <div class="card">
+    <h2>Contact</h2>
+    <form>
+      <input type="text" placeholder="Name" required>
+      <input type="email" placeholder="Email" required>
+      <textarea placeholder="Message"></textarea>
+      <button type="submit">Send</button>
+    </form>
+
+    <div class="socials">
+      <a href="https://www.instagram.com/diff.eona?igsh=MWtrYzdtZnFmNGVzaA=="><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com/share/17wz2pghW4/"><i class="fab fa-facebook"></i></a>
+    </div>
+  </div>
+</section>
+
+<script>
+const toggle = document.getElementById("toggle");
+const root = document.documentElement;
+
+if (localStorage.getItem("theme") === "dark") {
+  root.setAttribute("data-theme", "dark");
+  toggle.textContent = "🌙";
+}
+
+toggle.onclick = () => {
+  if (root.getAttribute("data-theme") === "dark") {
+    root.removeAttribute("data-theme");
+    localStorage.setItem("theme", "light");
+    toggle.textContent = "🌞";
+  } else {
+    root.setAttribute("data-theme", "dark");
+    localStorage.setItem("theme", "dark");
+    toggle.textContent = "🌙";
+  }
+};
+
+
+const petals = document.getElementById("petals");
+for (let i = 0; i < 30; i++) {
+  const p = document.createElement("div");
+  p.className = "petal";
+  p.style.left = Math.random() * 100 + "vw";
+  p.style.animationDuration = 6 + Math.random() * 6 + "s";
+  p.style.animationDelay = Math.random() * 5 + "s";
+  petals.appendChild(p);
+}
+
+
+const bubbles = document.getElementById("bubbles");
+for (let i = 0; i < 6; i++) {
+  const b = document.createElement("div");
+  b.className = "bubble";
+  b.style.left = Math.random() * 90 + "vw";
+  b.style.top = Math.random() * 90 + "vh";
+  b.style.animationDuration = 10 + Math.random() * 8 + "s";
+  bubbles.appendChild(b);
+}
+</script>
+
+
+</body>
+</html>
